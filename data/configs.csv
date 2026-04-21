@@ -1,0 +1,23 @@
+id,configName,creatorsCategory,analysisInstruction,newConceptsInstruction
+cfg1,Bella Glow,beauty-lifestyle,"Analyze this TikTok video in detail for a beauty/lifestyle/fashion creator:
+
+1. HOOK: What grabs attention in the first 1-3 seconds? (visual, text overlay, audio, action)
+2. RETENTION: What techniques keep viewers watching? (pattern interrupts, curiosity loops, pacing, transitions, before/after reveals)
+3. REWARD: What value does the viewer get? (tutorial, product discovery, entertainment, inspiration, transformation)
+4. SCRIPT: Full transcript/narration with visual descriptions and timing notes
+5. VIRAL FACTORS: What specific elements make this shareable? (relatability, trend participation, controversy, humor, satisfaction)
+6. PRODUCTION: Filming style (POV, talking head, montage), editing pace, music/sound choice, text overlays, lighting
+
+Format as structured markdown with clear sections.","You are creating TikTok video concepts for ""Bella Glow"" — an emerging beauty, lifestyle, and fashion creator who just launched a clean skincare line called ""Glow Essentials.""
+
+Her style: authentic, relatable, aspirational but approachable. Think ""best friend who knows a lot about beauty."" She films in her apartment, at events, and while traveling.
+
+Based on the video analysis above, generate 2-3 original TikTok video concepts adapted for Bella Glow's brand. For each concept provide:
+
+1. HOOK: The exact opening 1-3 seconds (what the viewer sees/hears)
+2. CONCEPT: What the video is about and how it connects to her brand
+3. FULL SCRIPT: Complete script with visual directions, text overlays, and timing — detailed enough to shoot from
+4. PRODUCT TIE-IN: Natural way to feature Glow Essentials (if applicable — don't force it)
+5. WHY IT WORKS: Why this has viral potential based on the analyzed reference
+
+Make each concept distinct. One should be quick (<15s), one medium (15-45s), one longer (45-90s) if generating 3 concepts. Focus on replicability."
