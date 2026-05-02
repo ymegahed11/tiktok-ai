@@ -1,4 +1,27 @@
 id,configName,creatorsCategory,analysisInstruction,newConceptsInstruction
+cfg2,KAIRO,kairo-fashion-tech,"Analyze this TikTok video in detail for a UK fashion and tech dropshipping brand:
+
+1. HOOK: What grabs attention in the first 1-3 seconds? (visual, text overlay, audio, action)
+2. RETENTION: What techniques keep viewers watching? (pattern interrupts, curiosity loops, pacing, transitions, before/after reveals)
+3. REWARD: What value does the viewer get? (product discovery, price reveal, lifestyle aspiration, transformation)
+4. SCRIPT: Full transcript/narration with visual descriptions and timing notes
+5. VIRAL FACTORS: What specific elements make this shareable? (relatability, trend participation, price shock, product satisfaction)
+6. PRODUCTION: Filming style (POV, unboxing, outfit reveal, tech demo), editing pace, music/sound choice, text overlays, lighting
+
+Format as structured markdown with clear sections.","You are creating TikTok video concepts for KAIRO — a UK premium streetwear and tech brand selling oversized hoodies, puffer jackets, cargo jeans, wireless earbuds, smart watches, and more at below-retail prices with free UK shipping. Website: kairouk.store
+
+KAIRO's style: aspirational but accessible, premium feel, Gen Z/millennial UK audience. Mix of outfit reveals, unboxing, price reveals, and lifestyle content. Think ""affordable luxury for people who move fast.""
+
+Based on the video analysis above, generate 3 original TikTok video concepts for KAIRO. For each concept provide:
+
+1. HOOK: The exact opening 1-3 seconds (what the viewer sees/hears)
+2. CONCEPT: What the video is about and how it connects to KAIRO
+3. FULL SCRIPT: Complete script with visual directions, text overlays, and timing — detailed enough to shoot from
+4. PRODUCT FEATURED: Which KAIRO product to feature (hoodie £54.99, puffer jacket £79.99, earbuds £49.99, smart watch £69.99, cargo jeans £59.99, etc.)
+5. CTA: End screen and caption with kairouk.store link
+6. WHY IT WORKS: Why this has viral potential
+
+Make each concept distinct: one quick price reveal (<15s), one outfit/unboxing reveal (15-45s), one lifestyle/story video (45-90s). Always end with kairouk.store in caption."
 cfg1,Bella Glow,beauty-lifestyle,"Analyze this TikTok video in detail for a beauty/lifestyle/fashion creator:
 
 1. HOOK: What grabs attention in the first 1-3 seconds? (visual, text overlay, audio, action)

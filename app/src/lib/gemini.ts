@@ -1,4 +1,4 @@
-const GEMINI_KEY = process.env.GEMINI_API_KEY;
+const getGeminiKey = () => process.env.GEMINI_API_KEY;
 const BASE = "https://generativelanguage.googleapis.com";
 
 function fetchWithTimeout(
@@ -14,7 +14,7 @@ export async function uploadVideo(
   filename: string
 ): Promise<{ uri: string; mimeType: string }> {
   const startRes = await fetchWithTimeout(
-    `${BASE}/upload/v1beta/files?key=${GEMINI_KEY}`,
+    `${BASE}/upload/v1beta/files?key=${getGeminiKey()}`,
     {
       method: "POST",
       headers: {
@@ -71,7 +71,7 @@ async function waitForFileActive(fileUri: string): Promise<void> {
   for (let i = 0; i < maxAttempts; i++) {
     await new Promise((r) => setTimeout(r, 3000));
     try {
-      const res = await fetchWithTimeout(`${fileUri}?key=${GEMINI_KEY}`, {}, 15_000);
+      const res = await fetchWithTimeout(`${fileUri}?key=${getGeminiKey()}`, {}, 15_000);
       if (!res.ok) continue;
       const data = await res.json();
       if (data.state === "ACTIVE") return;
@@ -95,7 +95,7 @@ export async function analyzeVideo(
     let res: Response;
     try {
       res = await fetchWithTimeout(
-        `${BASE}/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`,
+        `${BASE}/v1beta/models/gemini-2.5-flash:generateContent?key=${getGeminiKey()}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

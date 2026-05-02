@@ -1,14 +1,14 @@
 import { ApifyTikTokResult } from "./types";
 
-const APIFY_TOKEN = process.env.APIFY_API_TOKEN;
 const BASE_URL = "https://api.apify.com/v2/acts/clockworks~tiktok-scraper/run-sync-get-dataset-items";
+const getToken = () => process.env.APIFY_API_TOKEN;
 
 export async function scrapeTikToks(
   username: string,
   maxCount: number = 20,
   daysLookback: number = 30
 ): Promise<ApifyTikTokResult[]> {
-  const res = await fetch(`${BASE_URL}?token=${APIFY_TOKEN}`, {
+  const res = await fetch(`${BASE_URL}?token=${getToken()}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -39,13 +39,11 @@ export async function scrapeTikToks(
     throw new Error(`Apify returned non-array for @${username}: ${JSON.stringify(data).slice(0, 200)}`);
   }
 
-  return data.filter(
-    (v) => v.videoMeta?.downloadAddr && !v.isSlideshow
-  );
+  return data.filter((v) => !v.isSlideshow);
 }
 
 export async function scrapeCreatorStats(username: string) {
-  const res = await fetch(`${BASE_URL}?token=${APIFY_TOKEN}`, {
+  const res = await fetch(`${BASE_URL}?token=${getToken()}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

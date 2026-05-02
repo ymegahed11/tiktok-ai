@@ -32,6 +32,7 @@ export interface ApifyTikTokResult {
     downloadAddr?: string;
     subtitleLinks?: { language: string; downloadLink: string }[];
   };
+  videoUrl?: string;
   musicMeta: {
     musicName: string;
     musicAuthor: string;

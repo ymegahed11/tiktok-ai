@@ -168,34 +168,27 @@ export async function runPipeline(
         const videoStart = Date.now();
 
         try {
-          // Download
-          const downloadUrl = video.videoMeta.downloadAddr;
-          if (!downloadUrl) throw new Error("No download URL available");
-          log(`${prefix} Downloading video ...${shortId}`);
-          const videoRes = await fetch(downloadUrl, { signal: AbortSignal.timeout(120_000) });
-          if (!videoRes.ok) throw new Error(`Download failed (${videoRes.status})`);
-          const buffer = Buffer.from(await videoRes.arrayBuffer());
-          if (buffer.length < 1000) throw new Error(`Download too small (${buffer.length} bytes) — likely an error`);
-          log(`${prefix} Downloaded ${formatBytes(buffer.length)} [${elapsed(videoStart)}]`);
+          // Metadata-based analysis (no video download needed)
+          log(`${prefix} Analyzing metadata for ...${shortId}`);
+          const hashtags = (video.hashtags || []).map((h: { name: string }) => `#${h.name}`).join(" ");
+          const analysis = `## TikTok Video Analysis — @${creator}
 
-          // Upload to Gemini
-          const uploadStart = Date.now();
-          log(`${prefix} Uploading to Gemini...`);
-          const { uri, mimeType } = await uploadVideo(
-            buffer,
-            `${creator}-${video.id}.mp4`
-          );
-          log(`${prefix} Upload complete, processing... [${elapsed(uploadStart)}]`);
+**Caption:** ${video.text || "(no caption)"}
+**Hashtags:** ${hashtags || "(none)"}
+**Engagement:**
+- Views: ${formatCount(video.playCount)}
+- Likes: ${formatCount(video.diggCount)}
+- Comments: ${formatCount(video.commentCount)}
+- Shares: ${formatCount(video.shareCount)}
+- Saves: ${formatCount(video.collectCount)}
+- Duration: ${video.videoMeta?.duration || 0}s
 
-          // Analyze
-          const analyzeStart = Date.now();
-          log(`${prefix} Analyzing with Gemini 2.5 Flash...`);
-          const analysis = await analyzeVideo(
-            uri,
-            mimeType,
-            config.analysisInstruction
-          );
-          log(`${prefix} Analysis complete (${analysis.length} chars) [${elapsed(analyzeStart)}]`);
+**Engagement Rate:** ${video.playCount > 0 ? ((video.diggCount / video.playCount) * 100).toFixed(2) : 0}%
+**Sound:** ${video.musicMeta?.musicName || "original"} by ${video.musicMeta?.musicAuthor || "unknown"}
+**Link:** ${video.webVideoUrl}
+
+${config.analysisInstruction}`;
+          log(`${prefix} Metadata analysis ready [${elapsed(videoStart)}]`);
 
           // Generate concepts
           const conceptStart = Date.now();
