@@ -1,11 +1,12 @@
 import Anthropic from "@anthropic-ai/sdk";
 
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-
 export async function generateConcepts(
   videoAnalysis: string,
   prompt: string
 ): Promise<string> {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) throw new Error("ANTHROPIC_API_KEY is not set in environment");
+  const client = new Anthropic({ apiKey });
   const message = await client.messages.create({
     model: "claude-sonnet-4-5-20250929",
     max_tokens: 4096,
